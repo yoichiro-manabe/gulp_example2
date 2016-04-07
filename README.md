@@ -429,7 +429,7 @@ function product(r,n){var u=r*n;return u}function sum(r,n){var u=r+n;return u}
 ```
 
 ## ファイルの変更を監視してタスクを実行する
-gulpではファイルの変更を監視してタスクを実行するタスクを作成することができます。
+gulpではファイルの変更を監視してタスクを実行するタスクを作成することができます。追加するタスクは`watch`というタスク名とします。
 
 ```js:gulpfile.js
 // ファイルの変更を監視してタスクを実行する
@@ -437,3 +437,44 @@ gulp.task('watch', function(){
     gulp.watch(['src/*.js'], ['js']);
 });
 ```
+
+タスクに設定する内容ですが、以下のとおりとなります。
+
+```js
+gulp.watch(['監視対象のファイル'], [`実行するタスク名`])
+```
+
+今回の場合は、`src/*.js`が監視対象のファイルとなり、実行するタスクは`js`となります。試しに`product.js`ファイルの内容を変更してみると以下のとおり保存されたタイミングで`js`タスクが実行されることが確認できます。
+
+```shell
+╭─ymanabe@Yoichiro-no-MacBook-Pro  ~/projects/gulp_example2 ‹2.2.4›
+╰─$ gulp watch
+[09:24:43] Using gulpfile ~/projects/gulp_example2/gulpfile.js
+[09:24:43] Starting 'watch'...
+[09:24:43] Finished 'watch' after 10 ms
+[09:25:25] Starting 'js'...
+[09:25:25] Finished 'js' after 67 ms   # (1)
+```
+
+`gulp watch`で監視を実行します。その後、`product.js`を編集し保存したところ(1)のようにタスク`js`が実行されました。
+
+`product.js`にはログの出力を追加しました。
+
+```js:product.js
+/**
+ * Created by ymanabe on 2016/04/06.
+ */
+
+function product(param1, param2){
+    var result = param1 * param2;
+    console.log("result:" + result); // ここを追加した
+    return result;
+}
+```
+
+`bundle.js`にもログの出力が作成されています。
+
+```js:bundle.js
+function product(r,n){var u=r*n;return console.log("result:"+u),u}function sum(r,n){var u=r+n;return u}
+```
+
