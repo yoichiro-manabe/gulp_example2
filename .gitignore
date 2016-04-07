@@ -46,6 +46,11 @@ jspm_packages
 .idea/jsLibraryMappings.xml
 
 # Sensitive or high-churn files:
+### Sass template
+.sass-cache/
+*.css.map
+public/style/css
+
 .idea/dataSources.ids
 .idea/dataSources.xml
 .idea/dataSources.local.xml

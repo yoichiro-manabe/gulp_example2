@@ -1,0 +1,69 @@
+$text-font-color: #0f0f0f;
+
+.title1{
+  color: $text-font-color;
+  background-color: cadetblue;
+  font-size: 20px;
+}
+
+.text1{
+  @extend .title1;
+  font-size: 16px;
+}
+
+
+/* 以下のURLを参考にしました。 */
+/* CSSで作るツールチップ | Web’Notes http://webnonotes.com/css/tooltip/ */
+$tooltip-back-ground-color: #5BB2C1;
+
+div.tooltip1{
+
+  @mixin span-position-conf{
+    display: block;
+    position: absolute;
+    z-index:100;
+  }
+
+  color: $text-font-color;
+  display: inline-block;                        /* インライン要素化 */
+  border-bottom:dashed 1px $text-font-color;    /* 下線を引く */
+
+  /* ツールチップ部分を隠す */
+  span {
+    display: none;
+
+    &:before{
+      @include span-position-conf;
+      content:'';
+      height:0;
+      width:0;
+      top:-13px;
+      left:15px;
+      border:13px transparent solid;
+      border-right-width:0;
+      border-left-color:$tooltip-back-ground-color;
+      transform:rotate(270deg);            /* 傾きをつける */
+      -webkit-transform:rotate(270deg);
+      -o-transform:rotate(270deg);
+    }
+  }
+
+  /* マウスオーバー */
+  &:hover {
+    position: relative;
+    color: #333;
+
+    & span{
+      @include span-position-conf;
+      top: 25px;
+      font-size: 90%;
+      color: $text-font-color;
+      background-color: $tooltip-back-ground-color;
+      width: 205px;
+      padding: 5px;
+      border-radius:3px;
+    }
+  }
+}
+
+
