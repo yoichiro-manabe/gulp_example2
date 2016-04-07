@@ -478,3 +478,7 @@ function product(param1, param2){
 function product(r,n){var u=r*n;return console.log("result:"+u),u}function sum(r,n){var u=r+n;return u}
 ```
 
+なお、[WebStorm: The Smartest JavaScript IDE](https://www.jetbrains.com/webstorm/)を利用している場合にはGulpのタスクは以下のように実行することができます。
+
+![gulp_example_1.gif (739.8 kB)](https://beaglesoft-esaio.s3-ap-northeast-1.amazonaws.com/uploads/production/attachments/1905/2016/04/07/5164/897c561a-31e2-4149-b53d-40bea715b3c9.gif)
+
