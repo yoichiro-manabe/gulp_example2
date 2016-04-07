@@ -1,1 +1,1 @@
-function product(r,n){var u=r*n;return u}function sum(r,n){var u=r+n;return u}
+function product(r,n){var u=r*n;return console.log("result:"+u),u}function sum(r,n){var u=r+n;return u}

@@ -8,3 +8,8 @@ gulp.task('js', function(){
         .pipe(uglify()) // uglifyの実行
         .pipe(gulp.dest('dist'))    // distディレクトリに出力
 });
+
+// ファイルの変更を監視してタスクを実行する
+gulp.task('watch', function(){
+    gulp.watch(['src/*.js'], ['js']);
+});

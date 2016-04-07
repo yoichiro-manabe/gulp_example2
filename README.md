@@ -427,3 +427,13 @@ drwxr-xr-x  8 ymanabe  staff  272  4  7 08:57 ..
 ```js:bundle.js
 function product(r,n){var u=r*n;return u}function sum(r,n){var u=r+n;return u}
 ```
+
+## ファイルの変更を監視してタスクを実行する
+gulpではファイルの変更を監視してタスクを実行するタスクを作成することができます。
+
+```js:gulpfile.js
+// ファイルの変更を監視してタスクを実行する
+gulp.task('watch', function(){
+    gulp.watch(['src/*.js'], ['js']);
+});
+```
